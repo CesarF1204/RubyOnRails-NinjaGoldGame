@@ -1,0 +1,43 @@
+<h1>Your Gold : 
+    <span> <%= session[:gold] %> </span>
+    <a class='restart-game' href="/reset">Restart Game</a>
+</h1>
+<!-- Farm -->
+    <form action="/process" method="post">
+        <h3>Farm</h3>
+        <p>(earns 10-20 golds)</p>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="location" value="farm">
+        <input type="submit" value="Find Gold!"/>
+    </form>
+<!-- Cave -->
+    <form action="/process" method="post">
+        <h3>Cave</h3>
+        <p>(earns 5-10 golds)</p>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="location" value="cave">
+        <input type="submit" value="Find Gold!"/>
+    </form>
+<!-- House -->
+    <form action="/process" method="post">
+        <h3>House</h3>
+        <p>(earns 2-5 golds)</p>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="location" value="house">
+        <input type="submit" value="Find Gold!"/>
+    </form>
+<!-- Casino -->
+    <form action="/process" method="post">
+        <h3>Casino</h3>
+        <p>(earns/takes 0-50 golds)</p>
+        <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+        <input type="hidden" name="location" value="casino">
+        <input type="submit" value="Find Gold!"/>
+    </form>
+<!-- History -->
+<p class='activities'>Activities:</p>
+<div class='history'>
+    <% session[:activity].each do |activity| %>
+        <p><%= activity %></p>
+    <% end %>
+</div>
